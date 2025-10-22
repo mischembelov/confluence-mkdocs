@@ -1,0 +1,4 @@
+site_name: Моя Документация с Confluence
+nav:
+  - Главная: index.md
+docs_dir: docs
