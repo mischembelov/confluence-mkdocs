@@ -15,13 +15,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      
       - uses: actions/setup-python@v5
         with:
           python-version: '3.x'
-      - run: pip install mkdocs mkdocs-material
-      - run: mkdocs build
+      
+      - name: Install dependencies
+        run: |
+          pip install mkdocs
+          pip install mkdocs-material
+          pip install mkdocs-awesome-pages-plugin
+      
+      - name: Build MkDocs site
+        run: mkdocs build
+      
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site
+      
       - uses: actions/deploy-pages@v4
+
 
